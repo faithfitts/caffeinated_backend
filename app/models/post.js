@@ -10,9 +10,21 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  content: {
+  description: {
     type: String,
     required: true
+  },
+  ingredients: {
+    type: String,
+    required: true
+  },
+  instructions: {
+    type: String,
+    required: true
+  },
+  notes: {
+    type: String,
+    required: false
   },
   comments: [commentSchema],
   owner: {

@@ -28,7 +28,7 @@ router.post('/posts', requireToken, (req, res, next) => {
     .catch(next)
 })
 
-// INDEX ALL
+// INDEX ALL (not logged in)
 // GET /posts
 router.get('/posts', requireToken, (req, res, next) => {
   Post.find()
