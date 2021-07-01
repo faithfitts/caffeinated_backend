@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const commentSchema = new mongoose.Schema({
+const reviewSchema = new mongoose.Schema({
   content: {
     type: String,
     required: true
@@ -14,4 +14,4 @@ const commentSchema = new mongoose.Schema({
   timestamps: true
 })
 
-module.exports = commentSchema
+module.exports = reviewSchema

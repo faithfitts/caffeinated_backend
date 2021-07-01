@@ -45,7 +45,7 @@ router.get('/posts/:id', requireToken, (req, res, next) => {
   const id = req.params.id
   Post.findOne({ _id: id })
     .populate('owner')
-    .populate('comments.owner')
+    .populate('reviews.owner')
     .then(handle404)
     .then(post => {
       // console.log(post)
