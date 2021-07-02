@@ -29,11 +29,11 @@ router.post('/reviews', requireToken, (req, res, next) => {
       return post.save()
     })
     .then(post => {
-      const lastreviewPosition = (post.reviews.length - 1)
-      const newreview = post.reviews[lastreviewPosition]
-      return newreview
+      const lastReviewPosition = (post.reviews.length - 1)
+      const newReview = post.reviews[lastReviewPosition]
+      return newReview
     })
-    .then((newreview) => res.status(201).json({ newreview }))
+    .then((newReview) => res.status(201).json({ newReview }))
     .catch(next)
 })
 
@@ -61,11 +61,11 @@ router.patch('/reviews/:reviewId', requireToken, (req, res, next) => {
       return post.save()
     })
     .then(post => {
-      const lastreviewPosition = (post.reviews.length - 1)
-      const updatedreview = post.reviews[lastreviewPosition]
-      return updatedreview
+      const lastReviewPosition = (post.reviews.length - 1)
+      const updatedReview = post.reviews[lastReviewPosition]
+      return updatedReview
     })
-    .then((updatedreview) => res.status(201).json({ updatedreview }))
+    .then((updatedReview) => res.status(201).json({ updatedReview }))
     .catch(next)
 })
 

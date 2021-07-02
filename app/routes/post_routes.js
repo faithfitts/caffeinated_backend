@@ -28,7 +28,18 @@ router.post('/posts', requireToken, (req, res, next) => {
     .catch(next)
 })
 
-// INDEX ALL (not logged in)
+// INDEX USER-POST
+// GET /posts/user
+router.get('/posts/user', requireToken, (req, res, next) => {
+  Post.find({ owner: req.user._id })
+    .populate('owner', '_id email')
+    .then(post => {
+      res.status(200).json({ post: post })
+    })
+    .catch(next)
+})
+
+// INDEX ALL-POST
 // GET /posts
 router.get('/posts', requireToken, (req, res, next) => {
   Post.find()
@@ -48,7 +59,6 @@ router.get('/posts/:id', requireToken, (req, res, next) => {
     .populate('reviews.owner')
     .then(handle404)
     .then(post => {
-      // console.log(post)
       res.status(200).json({ post: post })
     })
     .catch(next)
