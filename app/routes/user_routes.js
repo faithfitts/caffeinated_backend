@@ -1,12 +1,11 @@
 const express = require('express')
-// jsonwebtoken docs: https://github.com/auth0/node-jsonwebtoken
-const crypto = require('crypto')
-// Passport docs: http://www.passportjs.org/docs/
 const passport = require('passport')
-// bcrypt docs: https://github.com/kelektiv/node.bcrypt.js
+// used to create a token
+const crypto = require('crypto')
+// used to hash passwords
 const bcrypt = require('bcrypt')
 
-// see above for explanation of "salting", 10 rounds is recommended
+// number of rounds to hash password
 const bcryptSaltRounds = 10
 
 // pull in error types and the logic to handle them and set status codes

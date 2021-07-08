@@ -13,7 +13,7 @@ const errorHandler = require('./lib/error_handler')
 const requestLogger = require('./lib/request_logger')
 
 // require database configuration logic
-// `db` will be the actual Mongo URI as a string
+// `db` is the actual Mongo URI as a string
 const db = require('./config/db')
 
 // require configured passport authentication middleware
@@ -66,7 +66,7 @@ app.use(reviewRoutes)
 // passed any error messages from them
 app.use(errorHandler)
 
-// run API on designated port (4741 in this case)
+// run API on designated port (4741)
 app.listen(port, () => {
   console.log('listening on port ' + port)
 })

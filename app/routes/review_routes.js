@@ -1,8 +1,7 @@
 const express = require('express')
-// Passport docs: http://www.passportjs.org/docs/
 const passport = require('passport')
 
-// pull in error types and the logic to handle them and set status codes
+// Errors
 const errors = require('../../lib/custom_errors')
 const handle404 = errors.handle404
 const requireOwnership = errors.requireOwnership
@@ -11,7 +10,7 @@ const Post = require('../models/post')
 
 const requireToken = passport.authenticate('bearer', { session: false })
 
-// instantiate a router (mini app that only handles routes)
+// instantiate a router
 const router = express.Router()
 
 // CREATE review

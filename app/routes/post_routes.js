@@ -1,18 +1,21 @@
+// require the express library
 const express = require('express')
-// Passport docs: http://www.passportjs.org/docs/
+// authentication middleware for Node.js
 const passport = require('passport')
 
-// pull in error types and the logic to handle them and set status codes
+// logic to handle errors and set status codes
 const errors = require('../../lib/custom_errors')
 const handle404 = errors.handle404
 const requireOwnership = errors.requireOwnership
+
+// middleware that allows user to update a single field at a time
 const removeBlanks = require('../../lib/remove_blank_fields')
 
 const Post = require('../models/post')
 
-// passing this as a second argument to `router.<verb>` will make it
+// pass this as a second argument to `router.<verb>` will make it
 // so that a token MUST be passed for that route to be available
-// it will also set `res.user`
+// also sets `res.user`
 const requireToken = passport.authenticate('bearer', { session: false })
 
 // instantiate a router (mini app that only handles routes)
